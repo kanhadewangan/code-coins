@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Accounting Hub - Expert Solutions</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #005cb9;
+        }
+
+        .logo span {
+            color: #ff6b00;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b00;
+            font-size: 1.1rem;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff6b00;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: #ff6b00 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e05f00;
+            scale: 1.1;
+        }
+
+        /* Hero section */
+        .hero {
+            background-color: #005cb9;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Services section */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: #005cb9;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            box-shadow: #974040;
+            box-sizing: border-box;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-card h3 i {
+            margin-right: 10px;
+            color: #ff6b00;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* About section */
+        .about {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            color: #005cb9;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .about-features {
+            margin-top: 30px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+
+        }
+
+        .feature i {
+            color: #ff6b00;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .certified-badge {
+            background-color: white;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            color: #555;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .certified-badge:hover {
+            background-color: #f5f5f5;
+            color: #333;
+            scale: 1.1;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact section */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            color: #005cb9;
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #e6f0fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #005cb9;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-text p {
+            color: #666;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #005cb9;
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #005cb9;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ff6b00;
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 0 10px;
+            }
+
+            .hero-content,
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
+
+            .hero-text,
+            .about-text,
+            .contact-info {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-image,
+            .about-image {
+                order: -1;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Automation <span>Accounting Hub</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Let us manage Accounting for you</h1>
+                    <p>More than 3 Years of accounting experties and in bookkeeping management & others</p>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="hero-image">
+                    <img src="api\placeholder\500\300.jpg" alt="Accounting Services">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Services Offered</h2>
+                <p>Professional accounting and financial services to help your business grow</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>✓ Accounting</h3>
+                    <p>Comprehensive accounting services for businesses of all sizes. We handle bookkeeping, financial
+                        statements, and accounting system setup.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>✓ GST Registration</h3>
+                    <p>Complete assistance with GST registration process, documentation, and verification for your
+                        business to be GST compliant.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>✓ Income Tax Filing</h3>
+                    <p>Professional income tax filing services for individuals and businesses. We ensure maximum tax
+                        benefits with accurate filings.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>✓ GST Return Filing</h3>
+                    <p>Timely and accurate GST return filing services to keep your business compliant with all GST
+                        regulations.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>✓ Company Registration</h3>
+                    <p>End-to-end company registration services including documentation, filing, and compliance
+                        requirements.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>✓ G.E.M. Registration</h3>
+                    <p>Complete assistance with Government e-Marketplace registration to help your business access
+                        government procurement opportunities.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>✓ UDYAM Registration</h3>
+                    <p>Professional assistance with UDYAM registration to help your MSME access various benefits and
+                        schemes.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Expert Accounting Solutions</h2>
+                    <p>At Automation Accounting Hub, we provide professional accounting and financial services with a
+                        focus on accuracy, compliance, and client satisfaction.</p>
+                    <p>With over 3 years of experience in accounting and bookkeeping management, our team of experts is
+                        committed to helping businesses streamline their financial operations.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <span>✓</span>
+                            <p>Experienced and professional team</p>
+                        </div>
+                        <div class="feature">
+                            <span>✓</span>
+                            <p>Timely delivery of services</p>
+                        </div>
+                        <div class="feature">
+                            <span>✓</span>
+                            <p>Compliance with all regulatory requirements</p>
+                        </div>
+                        <div class="feature">
+                            <span>✓</span>
+                            <p>Customized solutions for businesses</p>
+                        </div>
+                    </div>
+                    <div class="certified-badge">Certified Pro</div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Our Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our experts for any queries or services</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <div class="contact-detail">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p>78284-85040</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">✉</div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>automationacc678@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">🏢</div>
+                        <div class="contact-text">
+                            <h3>Office</h3>
+                            <p>Bilaspur, Chhattisgarh 495001</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-text">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us A Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" placeholder="Your Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Required</label>
+                            <input type="text" id="service" placeholder="Which service are you interested in?">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Automation Accounting Hub</h3>
+                    <p>Professional accounting and financial services to help your business grow and succeed.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Accounting</a></li>
+                        <li><a href="#">GST Registration & Return</a></li>
+                        <li><a href="#">Income Tax Filing</a></li>
+                        <li><a href="#">Company Registration</a></li>
+                        <li><a href="#">G.E.M. Registration</a></li>
+                        <li><a href="#">UDYAM Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p>Phone: 78284-85040</p>
+                    <p>Email: automationacc678@gmail.com</p>
+                    <p>Address: Bilaspur, Chhattisgarh 495001</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Automation Accounting Hub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
