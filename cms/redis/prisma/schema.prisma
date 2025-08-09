@@ -1,0 +1,100 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users{
+  id String @id @default(cuid())
+  name String
+  email String @unique
+  password String
+  question Question[]
+  submissions Submission[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model admin {
+  id String @id @default(cuid())
+  name String
+  email String @unique
+  password String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  question Question[]
+
+}
+model Question{
+   id  String @id @default(cuid())
+   problem_id String @default(cuid()) @unique
+    title String?
+    description String?
+    difficulty Difficulty
+    tags String[]
+    testcases String[]
+    code String?
+    language Language
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    userId String
+    user users @relation(fields: [userId], references: [id])
+    adminId String
+    admin admin @relation(fields: [adminId], references: [id])
+    submissions Submission[]
+    
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+ enum Language {
+  C
+  CPP
+  JAVA
+  PYTHON
+  JAVASCRIPT
+  TYPESCRIPT
+  RUBY
+  GO
+  SWIFT
+  KOTLIN
+  RUST
+  PHP
+  CSHARP
+  PERL
+  SCALA
+  HASKELL
+  DART
+  ELIXIR
+  LUA
+  GROOVY
+  OCAML
+  FSHARP
+  SQL
+  BASH
+ }
+
+ model Submission {
+   id String @id @default(cuid())
+   problemId String 
+   userId String
+   code String
+   language Language
+   createdAt DateTime @default(now())
+   updatedAt DateTime @updatedAt
+   user users @relation(fields: [userId], references: [id])
+   question Question @relation(fields: [problemId], references: [problem_id])
+ }
